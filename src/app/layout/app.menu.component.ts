@@ -1,5 +1,4 @@
-import { OnInit } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
@@ -74,6 +73,11 @@ export class AppMenuComponent implements OnInit {
                                 label: 'Login',
                                 icon: 'pi pi-fw pi-sign-in',
                                 routerLink: ['/auth/login']
+                            },
+                            {
+                                label: 'Login1',
+                                icon: 'pi pi-fw pi-sign-in',
+                                routerLink: ['/auth/loginpage']
                             },
                             {
                                 label: 'Error',

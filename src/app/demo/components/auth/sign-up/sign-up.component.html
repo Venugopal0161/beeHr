@@ -1,0 +1,226 @@
+<div class="min-h-screen relative overflow-hidden">
+    <!-- Background with gradient and 3D shapes -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+        <div
+            class="absolute top-32 right-16 w-80 h-80 bg-gradient-to-br from-orange-400/30 to-amber-400/30 rounded-full blur-3xl"></div>
+        <div
+            class="absolute bottom-32 right-32 w-96 h-96 bg-gradient-to-br from-yellow-400/25 to-orange-400/25 rounded-full blur-3xl"></div>
+        <div
+            class="absolute top-20 right-80 w-64 h-64 bg-gradient-to-br from-amber-400/20 to-yellow-400/20 rounded-full blur-2xl"></div>
+        <div
+            class="absolute bottom-20 left-20 w-72 h-72 bg-gradient-to-br from-orange-300/25 to-amber-400/25 rounded-full blur-3xl"></div>
+    </div>
+
+    <div
+        class="relative z-10 flex items-center justify-center min-h-screen p-4">
+        <div
+            class="w-full max-w-5xl grid lg:grid-cols-2 gap-12 items-center flex-nowrap justify-evenly">
+            <!-- Left side - Content -->
+            <div class="space-y-6 text-center lg:text-left minorScreens">
+                <div class="space-y-4">
+                    <div
+                        class="flex items-center justify-center lg:justify-start gap-3  ">
+                        <div
+                            class="w-1 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
+                            <i class="pi pi-users text-xl text-white"></i>
+
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900">BeeHr</h1>
+                    </div>
+
+                    <h2
+                        class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                        Transform Your<br>
+                        <span class="text-orange-600">HR Management</span>
+                    </h2>
+
+                    <p class="text-gray-600 text-lg leading-relaxed max-w-lg">
+                        Join thousands of companies using BeeHr to streamline
+                        attendance tracking, automate payroll processing,
+                        and enhance employee management efficiency.
+                    </p>
+                </div>
+
+                <!-- Stepper -->
+                <!-- Stepper -->
+                <div
+                    class="flex items-center justify-center lg:justify-start space-x-4 mb-8">
+                    <div *ngFor="let step of steps; let i = index"
+                        class="flex items-center">
+
+                        <!-- Step Circle -->
+                        <div
+                            [ngClass]="getStepClass(step.id)"
+                            class="flex items-center justify-center h-12 w-24 rounded-full border-2 transition-all duration-300"
+                            style="width: 45px;">
+                            <i *ngIf="currentStep > step.id"
+                                class="pi pi-check   text-green-600 text-xl "></i>
+                            <i *ngIf="currentStep <= step.id"
+                                [ngClass]="'text-gray-700 text-xl  ' + step.icon">
+                            </i>
+                        </div>
+
+                        <!-- Connector Line -->
+                        <div
+                            *ngIf="i < steps.length - 1"
+                            [ngClass]="getConnectorClass(step.id)"
+                            class="h-0.5 mx-2 transition-all duration-300 w-24"></div>
+                    </div>
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <p class="text-gray-600">
+                        Already have an account?
+                        <button (click)="onSwitchToSignin()"
+                            class="text-orange-600 hover:text-orange-700 font-medium ml-1">
+                            Sign in here
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right side - Form -->
+            <div
+                class="backdrop-blur-sm bg-white/80 border-0 shadow-2xl m-0 px-4 py-6 rounded-lg"
+                style="width: 45%;">
+                <div class="p-4">
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold text-gray-900">{{
+                                steps[currentStep - 1].title }}</h3>
+                            <p class="text-gray-600 mt-1">{{ steps[currentStep -
+                                1].description }}</p>
+                        </div>
+
+                        <!-- Step 1: Email -->
+                        <div *ngIf="currentStep === 1" class="space-y-4">
+                            <div>
+                                <label for="email"
+                                    class="block text-sm font-medium text-gray-700">Work
+                                    Email Address</label>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Enter your work email address"
+                                    [(ngModel)]="formData.email"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                                <p class="text-xs text-gray-500 mt-1">We'll use
+                                    this to set up your BeeHr account</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Company Info -->
+                        <div *ngIf="currentStep === 2" class="space-y-4">
+                            <div>
+                                <label for="companyName"
+                                    class="block text-sm font-medium text-gray-700">Company
+                                    Name</label>
+                                <input
+                                    id="companyName"
+                                    placeholder="Enter your company name"
+                                    [(ngModel)]="formData.companyName"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                            <div>
+                                <label for="companyCode"
+                                    class="block text-sm font-medium text-gray-700">Company
+                                    Registration Code</label>
+                                <input
+                                    id="companyCode"
+                                    placeholder="Enter company registration code"
+                                    [(ngModel)]="formData.companyCode"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                            <div>
+                                <label for="address"
+                                    class="block text-sm font-medium text-gray-700">Company
+                                    Address</label>
+                                <input
+                                    id="address"
+                                    placeholder="Enter company headquarters address"
+                                    [(ngModel)]="formData.address"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                            <div>
+                                <label for="phoneNumber"
+                                    class="block text-sm font-medium text-gray-700">Contact
+                                    Phone Number</label>
+                                <input
+                                    id="phoneNumber"
+                                    placeholder="Enter company phone number"
+                                    [(ngModel)]="formData.phoneNumber"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Branch Info -->
+                        <div *ngIf="currentStep === 3" class="space-y-4">
+                            <div>
+                                <label for="branchName"
+                                    class="block text-sm font-medium text-gray-700">Branch/Department
+                                    Name</label>
+                                <input
+                                    id="branchName"
+                                    placeholder="e.g., Main Office, HR Department"
+                                    [(ngModel)]="formData.branchName"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                            <div>
+                                <label for="branchAddress"
+                                    class="block text-sm font-medium text-gray-700">Branch
+                                    Address</label>
+                                <input
+                                    id="branchAddress"
+                                    placeholder="Enter branch location address"
+                                    [(ngModel)]="formData.branchAddress"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                            <div>
+                                <label for="branchManager"
+                                    class="block text-sm font-medium text-gray-700">Branch
+                                    Manager/HR Lead</label>
+                                <input
+                                    id="branchManager"
+                                    placeholder="Enter manager or HR lead name"
+                                    [(ngModel)]="formData.branchManager"
+                                    class="mt-1 block w-full px-3 py-2 bg-white/50 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" />
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="flex justify-between pt-4">
+                            <button
+                                (click)="prevStep()"
+                                [disabled]="currentStep === 1"
+                                class="flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-300 hover:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-md transition-colors">
+                                <!-- <lucide-icon name="chevron-left"
+                                    class="w-4 h-4"></lucide-icon> -->
+                                <i
+                                    class="text-sm font-medium mr-2 pi pi-chevron-left"></i>
+                                Back
+                            </button>
+
+                            <button
+                                *ngIf="currentStep === 3; else continueBtn"
+                                (click)="handleSubmit()"
+                                [disabled]="!isStepValid()"
+                                class="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 rounded-md font-medium transition-colors">
+                                Start Using BeeHr
+                            </button>
+
+                            <ng-template #continueBtn>
+                                <button
+                                    (click)="nextStep()"
+                                    [disabled]="!isStepValid()"
+                                    class="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 rounded-md font-medium transition-colors">
+                                    Continue
+                                </button>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+ <div class="min-h-screen relative overflow-hidden">
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+        <div
+            class="absolute top-32 right-16 w-80 h-80 bg-gradient-to-br from-orange-50/30 to-amber-400/30 rounded-full blur-3xl"></div>
+        <div
+            class="absolute bottom-32 right-32 w-96 h-96 bg-gradient-to-br from-yellow-400/25 to-orange-400/25 rounded-full blur-3xl"></div>
+        <div
+            class="absolute top-20 right-80 w-64 h-64 bg-gradient-to-br from-amber-400/20 to-yellow-400/20 rounded-full blur-2xl"></div>
+        <div
+            class="absolute bottom-20 left-20 w-72 h-72 bg-gradient-to-br from-orange-300/25 to-amber-400/25 rounded-full blur-3xl"></div>
+    </div>
+
+    <div
+        class="relative z-10 flex items-center justify-center min-h-screen p-4">
+        <div
+            class="w-full max-w-5xl grid lg:grid-cols-2 gap-12 items-center flex-nowrap justify-evenly">
+            <div class="space-y-8 text-center lg:text-left minorScreens">
+                <div class="space-y-6">
+                    <div
+                        class="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                        <div
+                            class="w-1 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
+                            <i class="pi pi-users text-xl text-white"></i>
+
+                        </div>
+                        <h1
+                            class="text-4xl font-bold text-gray-900">BeeHr</h1>
+                    </div>
+
+                    <h2
+                        class="text-6xl   font-bold text-gray-900 leading-tight">
+                        Streamline Your
+                        <br />
+                        <span class="text-orange-600">HR Operations</span>
+                    </h2>
+
+                    <p
+                        class="text-gray-600 text-xl leading-relaxed max-w-lg">
+                        Manage attendance, payroll, and employee tracking all in
+                        one powerful platform. Simplify your HR
+                        processes and focus on what matters most - your people.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
+                    <div
+                        class="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg"
+                        style="width: 45%;">
+                        <i
+                            class="pi pi-clock  text-orange-600 text-xl"></i>
+                        <span
+                            class="text-sm font-medium text-gray-700">Attendance</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg"
+                        style="width: 45%;">
+                        <!-- <dollarsign class=" text-amber-600" /> -->
+                        <i
+                            class="pi pi-dollar  text-amber-600 text-xl"></i>
+                        <span
+                            class="text-sm font-medium text-gray-700">Payroll</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg"
+                        style="width: 45%;">
+                        <!-- <users class=" text-yellow-600" /> -->
+                        <i
+                            class="pi pi-users  text-yellow-600 text-xl "></i>
+                        <span
+                            class="text-sm font-medium text-gray-700">Employee
+                            Mgmt</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg"
+                        style="width: 45%;">
+                        <!-- <barchart3 class=" text-orange-500" /> -->
+                        <i
+                            class="pi pi-chart-bar  text-orange-500 text-xl"></i>
+                        <span
+                            class="text-sm font-medium text-gray-700">Analytics</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="backdrop-blur-sm bg-white/80 border-0 shadow-2xl   m-0 px-4 py-6 rounded-lg"
+                style="width: 45%;">
+                <div class="p-4">
+                    <div class="space-y-6">
+                        <div class="text-center">
+                            <h3
+                                class="text-2xl font-semibold text-gray-900">Welcome
+                                Back</h3>
+                            <p class="text-gray-600 mt-1">Sign in to your
+                                BeeHr account</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label htmlFor="signin-email"
+                                    class="block text-gray-900 text-md font-medium mb-2">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    id="signin-email"
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    [(ngModel)]="email"
+                                    name="email"
+                                    class="mt-1 w-full bg-white/50 border border-gray-200 rounded-md px-3 py-2 text-sm focus:border-orange-500 focus:ring-orange-500 focus:outline-none focus:ring-1" />
+                            </div>
+
+                            <div>
+                                <label htmlFor="signin-password"
+                                    class="block text-gray-900 text-md font-medium mb-2">
+                                    Password
+                                </label>
+
+                                <input
+                                    id="signin-password"
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    [(ngModel)]="password"
+                                    name="password"
+                                    class="mt-1  w-full  bg-white/50 border border-gray-200 rounded-md px-3 py-2 text-sm focus:border-orange-500 focus:ring-orange-500 focus:outline-none focus:ring-1" />
+
+                            </div>
+                        </div>
+
+                        <button
+                            (click)="handleSignin()"
+                            class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg"
+                            [disabled]="!email || !password">
+                            Sign In
+                        </button>
+
+                        <div class="text-center">
+                            <p class="text-gray-600">
+                                Don't have an account ?
+                                <button (click)="onSwitchToSignup()"
+                                    class="text-orange-600 hover:text-orange-700 font-medium">
+                                    Sign up here
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

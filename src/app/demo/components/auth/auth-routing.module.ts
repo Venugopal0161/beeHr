@@ -5,7 +5,9 @@ import { RouterModule } from '@angular/router';
     imports: [RouterModule.forChild([
         { path: 'error', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
         { path: 'access', loadChildren: () => import('./access/access.module').then(m => m.AccessModule) },
-        { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
+        { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+        { path: 'loginpage', loadChildren: () => import('./login-page/login-page.module').then(m => m.LoginPageModule) },
+        { path: 'signup', loadChildren: () => import('./sign-up/sign-up.module').then(m => m.SignUpModule) }
     ])],
     exports: [RouterModule]
 })

@@ -1,0 +1,16 @@
+@media screen and (max-width: 850px) {
+    .minorScreens {
+        display: none;
+    }
+
+    div[style*="width: 45%"] {
+        width: 65% !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div[style*="width: 45%"] {
+        width: 90% !important;
+    }
+
+}
