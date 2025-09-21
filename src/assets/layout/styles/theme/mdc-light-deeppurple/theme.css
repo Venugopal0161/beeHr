@@ -4290,7 +4290,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-tabview .p-tabview-nav {
-  background: #ffffff;
+  background: #ffffff00;
   border: solid rgba(0, 0, 0, 0.12);
   border-width: 0 0 1px 0;
 }
@@ -4301,7 +4301,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   border: solid rgba(0, 0, 0, 0.12);
   border-width: 0 0 1px 0;
   border-color: transparent transparent rgba(0, 0, 0, 0.12) transparent;
-  background: #ffffff;
+  background: #ffffff00;
   color: rgba(0, 0, 0, 0.6);
   padding: 0.75rem 1.25rem;
   font-weight: 500;
@@ -4321,7 +4321,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   color: rgba(0, 0, 0, 0.6);
 }
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background: #ffffff;
+  background: #ffffff00;
   border-color: rgba(0, 0, 0, 0.12);
   color: #ff9800;
 }
@@ -4347,8 +4347,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   box-shadow: inset none;
 }
 .p-tabview .p-tabview-panels {
-  background: #ffffff;
-  padding: 0.75rem;
+  /* background: #ffffff;
+  padding: 0.75rem; */
   border: 0 none;
   color: rgba(0, 0, 0, 0.87);
   border-bottom-right-radius: 4px;

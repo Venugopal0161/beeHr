@@ -1,8 +1,9 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NotfoundComponent } from './demo/components/notfound/notfound.component';
-import { AppLayoutComponent } from "./layout/app.layout.component";
+import { RouterModule } from '@angular/router';
 import { MydashboardComponent } from './demo/components/mydashboard/mydashboard.component';
+import { NotfoundComponent } from './demo/components/notfound/notfound.component';
+import { LoginGuard } from './guards/login.guard';
+import { AppLayoutComponent } from "./layout/app.layout.component";
 
 @NgModule({
     imports: [
@@ -10,7 +11,11 @@ import { MydashboardComponent } from './demo/components/mydashboard/mydashboard.
             {
                 path: '', component: AppLayoutComponent,
                 children: [
-                    { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path: '', redirectTo:'dashboard', pathMatch:'full'},
+                    { path: 'dashboard', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    // { path: 'setup', component: SetupComponent, loadChildren: () => import('./setup/setup.module').then(m => m.SetupModule) },
+
+                    { path: 'setup', loadChildren: () => import('./setup/setup.module').then(m => m.SetupModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UikitModule) },
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
                     { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
@@ -19,8 +24,9 @@ import { MydashboardComponent } from './demo/components/mydashboard/mydashboard.
                     // New Update Template
                     { path: 'mydashboard', component: MydashboardComponent },
                 ],
+                
             },
-            { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
+            { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule), canActivate: [LoginGuard] },
             { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'pages/notfound', component: NotfoundComponent },
             { path: '**', redirectTo: 'pages/notfound' },

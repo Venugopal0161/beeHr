@@ -20,6 +20,7 @@ export class AppComponent {
 
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { LayoutService } from './layout/service/app.layout.service';
 
@@ -29,7 +30,11 @@ import { LayoutService } from './layout/service/app.layout.service';
 })
 export class AppComponent implements OnInit {
 
-    constructor(private primengConfig: PrimeNGConfig, private layoutService: LayoutService) { }
+
+    constructor(private primengConfig: PrimeNGConfig,
+        private router: Router, private layoutService: LayoutService) {
+        this.router.navigateByUrl('/auth')
+     }
 
     ngOnInit(): void {
         this.primengConfig.ripple = true;       //enables core ripple functionality

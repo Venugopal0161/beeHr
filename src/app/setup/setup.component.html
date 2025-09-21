@@ -1,0 +1,23 @@
+
+<!-- 
+<p-tabView (onChange)="onTabChange($event)" orientation="left">
+
+    <p-tabPanel header="Company" class="line-height-3 m-0">
+<router-outlet></router-outlet>
+</p-tabPanel>
+
+</p-tabView> -->
+
+<h4>Setup</h4>
+
+<p-tabView
+    orientation="left"
+    [activeIndex]="activeTabIndex"
+    (onChange)="onTabChange($event)">
+    <p-tabPanel *ngFor="let tab of tabs"
+        [header]="tab.label">
+
+        <router-outlet
+            *ngIf="activeTabIndex === tabs.indexOf(tab)"></router-outlet>
+    </p-tabPanel>
+</p-tabView>

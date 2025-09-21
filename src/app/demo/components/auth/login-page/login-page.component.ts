@@ -17,6 +17,7 @@ export class LoginPageComponent {
   handleSignin() {
     console.log('Signin attempt:', { email: this.email, password: this.password });
     this.router.navigateByUrl('/');
+    localStorage.setItem('user-data','true')
   }
 
   onSwitchToSignup() {
