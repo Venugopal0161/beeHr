@@ -47,11 +47,11 @@ Run 'ng help' for more options.
             to avoid sync issues. </p>
     
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
-import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; Component, OnInit &#125; from '&#64;angular/core';
 import &#123; PrimeNGConfig &#125; from 'primeng/api';
 import &#123; LayoutService &#125; from './layout/service/app.layout.service';
 
-@Component(&#123;
+&#64;Component(&#123;
     selector: 'app-root',
     templateUrl: './app.component.html'
 &#125;)
@@ -81,10 +81,10 @@ export class AppComponent implements OnInit &#123;
             navigate to this file and define your own model as a nested structure.</p>
     
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
-import &#123; OnInit &#125; from '@angular/core';
-import &#123; Component &#125; from '@angular/core';
+import &#123; OnInit &#125; from '&#64;angular/core';
+import &#123; Component &#125; from '&#64;angular/core';
 
-@Component(&#123;
+&#64;Component(&#123;
     selector: 'app-menu',
     templateUrl: './app.menu.component.html'
 &#125;)
